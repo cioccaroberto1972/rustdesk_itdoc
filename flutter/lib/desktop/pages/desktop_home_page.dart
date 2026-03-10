@@ -91,6 +91,7 @@ class _DesktopHomePageState extends State<DesktopHomePage>
         child: loadLogo(),
       ),
       buildTip(context),
+      buildItdocContacts(context),
       if (!isOutgoingOnly) buildIDBoard(context),
       if (!isOutgoingOnly) buildPasswordBoard(context),
       FutureBuilder<Widget>(
@@ -428,7 +429,33 @@ class _DesktopHomePageState extends State<DesktopHomePage>
       ),
     );
   }
-
+Widget buildItdocContacts(BuildContext context) {
+    final textColor = Theme.of(context).textTheme.titleLarge?.color;
+    return Container(
+      margin: const EdgeInsets.only(left: 20.0, right: 16, top: 10, bottom: 10),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Color(0xFF2B86A7).withOpacity(0.1),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: Color(0xFF2B86A7).withOpacity(0.3)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text("Ciocca Roberto", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: Color(0xFF2B86A7))),
+          Text("IT Doc - Informatica & Web", style: TextStyle(fontSize: 11, color: textColor?.withOpacity(0.7))),
+          SizedBox(height: 8),
+          InkWell(onTap: () => launchUrl(Uri.parse("https://itdoc.it")), child: Text("🌐 itdoc.it", style: TextStyle(fontSize: 11, color: Color(0xFF2B86A7), decoration: TextDecoration.underline))),
+          SizedBox(height: 4),
+          InkWell(onTap: () => launchUrl(Uri.parse("tel:+393923959205")), child: Text("📞 392 395 9205", style: TextStyle(fontSize: 11, color: Color(0xFF2B86A7), decoration: TextDecoration.underline))),
+          SizedBox(height: 4),
+          InkWell(onTap: () => launchUrl(Uri.parse("https://wa.me/393923959205")), child: Text("💬 WhatsApp", style: TextStyle(fontSize: 11, color: Colors.green, decoration: TextDecoration.underline))),
+          SizedBox(height: 4),
+          InkWell(onTap: () => launchUrl(Uri.parse("mailto:info@itdoc.it")), child: Text("✉️ info@itdoc.it", style: TextStyle(fontSize: 11, color: Color(0xFF2B86A7), decoration: TextDecoration.underline))),
+        ],
+      ),
+    );
+  }
   Widget buildHelpCards(String updateUrl) {
     if (!bind.isCustomClient() &&
         updateUrl.isNotEmpty &&
