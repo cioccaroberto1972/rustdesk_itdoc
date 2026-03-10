@@ -5,7 +5,7 @@ authors = ["rustdesk <info@itdoc.it>"]
 edition = "2021"
 build= "build.rs"
 description = "RustDesk Remote Desktop - IT Doc Informatica & Web"
-default-run = "rustdesk"
+default-run = "itdoc-supporto"
 rust-version = "1.75"
 
 [lib]
