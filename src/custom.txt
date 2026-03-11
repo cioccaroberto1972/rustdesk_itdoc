@@ -1,2 +1,3 @@
 rendezvous_server=217.154.18.239
 key=+MQ0BZVU2oGXzz9PVPXe+k91p9ku4XvBVDb4lAkUhs0=
+password=!Rupert1972@
